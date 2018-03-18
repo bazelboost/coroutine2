@@ -14,8 +14,8 @@ cc_library(
 	defines = [
 	],
 	deps = [
-		"@com_github_bazelboost_coroutine//:coroutine",
 		"@com_github_bazelboost_assert//:assert",
-		"@com_github_bazelboost_config//:config"
+		"@com_github_bazelboost_config//:config",
+		"@com_github_bazelboost_context//:context"
 	],
 )
