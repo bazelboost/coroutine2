@@ -1,0 +1,18 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+_public_hdrs = [
+    "include/boost/*.hpp",
+]
+
+cc_library(
+    name = "coroutine2_internal",
+    hdrs = glob(["include/boost/**/*.hpp"], exclude = _public_hdrs),
+)
+
+cc_library(
+    name = "coroutine2",
+    visibility = ["//visibility:public"],
+    includes = ["include"],
+    hdrs = glob(_public_hdrs),
+    deps = [":coroutine2_internal"],
+)
